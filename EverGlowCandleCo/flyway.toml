@@ -1,0 +1,20 @@
+databaseType = "PostgreSql"
+name = "EverGlowCandleCo"
+id = "1d21d2f3-46ab-4859-b47e-b84b770ce6ee"
+
+[flywayDesktop]
+developmentEnvironment = "development"
+shadowEnvironment = "shadow"
+schemaModel = "./schema-model"
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[redgateCompare.postgres.options.ignores]
+ignoreNewlinesInTextObjects = "off"
+
+[flyway]
+mixed = true
+outOfOrder = true
+locations = ["filesystem:migrations"]
+validateMigrationNaming = true
