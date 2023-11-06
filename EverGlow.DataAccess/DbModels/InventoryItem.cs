@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EverGlow.DataAccess.DbModels
 {
+    [Table("InventoryItem")]
     public class InventoryItem
     {
         public int Id { get;set; }
@@ -15,6 +17,7 @@ namespace EverGlow.DataAccess.DbModels
         public string Description { get; set; } = String.Empty;
         public int NumberInStock { get; set; }
         public int LowStockNumber { get; set; }
+        public int ItemsPerUnit { get; set; }
         public double PricePerUnit { get; set; }
         public DateTime DateLastReordered { get; set; }
         public DateTime LastUpdateDate { get; set; }

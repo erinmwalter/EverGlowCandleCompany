@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using EverGlow.DataAccess.DbContexts;
 using EverGlow.DataAccess.DbModels;
 using System;
 using System.Collections.Generic;
@@ -18,25 +19,9 @@ namespace EverGlow.DataAccess.Repos.StoreInventory
             _context = context;
         }
 
-        public async Task<List<InventoryItem>> GetAllInventoryItemsAsync()
+        public Task<List<InventoryItem>> GetAllInventoryItemsAsync()
         {
-            var query = """SELECT * FROM public."StoreInventory" """;
-
-            using(var connection = _context.CreateConnection())
-            {
-                connection.Open();
-                var inventoryItems = await connection.QueryAsync<InventoryItem>(query);
-                connection.Close();
-
-                if (inventoryItems.Any())
-                {
-                    return inventoryItems.ToList();
-                }
-                else
-                {
-                    return new List<InventoryItem>();
-                }
-            }
+            throw new NotImplementedException();
         }
     }
 }
