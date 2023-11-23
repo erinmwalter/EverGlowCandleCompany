@@ -1,5 +1,5 @@
 using EverGlow.DataAccess;
-using EverGlow.DataAccess.Repos.StoreInventory;
+using EverGlow.DataAccess.DbModels;
 using System.Reflection;
 
 namespace EverGlow.API
@@ -19,12 +19,13 @@ namespace EverGlow.API
             // Add services to the container.
             builder.Services.AddControllers();
 
+
+            var dbConnectionOptions = builder.Configuration.GetSection(DbConnectionOptions.Key).Get<DbConnectionOptions>();
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddSingleton<EverGlowDbContext>();
-            //using In-memory repo until have db set up
-            builder.Services.AddScoped<IStoreInventoryRepo, InMemoryInventoryRepo>();
+            builder.Services.AddDbServices(dbConnectionOptions);
 
             var app = builder.Build();
 
