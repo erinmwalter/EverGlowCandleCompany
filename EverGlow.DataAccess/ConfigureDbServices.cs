@@ -1,6 +1,6 @@
 ﻿using EverGlow.DataAccess.DbContexts;
 using EverGlow.DataAccess.DbModels;
-using EverGlow.DataAccess.Repos.StoreInventory;
+using EverGlow.DataAccess.Repos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,14 +12,14 @@ using System.Threading.Tasks;
 
 namespace EverGlow.DataAccess
 {
-    public static  class ConfigureDbServices
+    public static class ConfigureDbServices
     {
         public static void AddDbServices(this IServiceCollection services, DbConnectionOptions config)
         {
             services.AddDbContext<EverGlowDbContext>(options =>
                     options.UseNpgsql(config.ConnectionString));
 
-            services.AddTransient<IStoreInventoryRepo, StoreInventoryRepo>();
+            services.AddTransient<IRepository<InventoryItem>, Repository<InventoryItem>>();
 
         }
     }

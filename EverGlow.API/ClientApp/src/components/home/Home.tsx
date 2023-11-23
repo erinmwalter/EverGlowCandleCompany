@@ -6,7 +6,7 @@ export class Home extends Component {
   render() {
     return (
       <>
-       <h3>Welcome to Everglow Candle Co.</h3>
+       <h3>Welcome, Admin!</h3>
       </>
     );
   }

@@ -1,6 +1,5 @@
 using EverGlow.DataAccess;
 using EverGlow.DataAccess.DbModels;
-using EverGlow.DataAccess.Repos.StoreInventory;
 using System.Reflection;
 
 namespace EverGlow.API

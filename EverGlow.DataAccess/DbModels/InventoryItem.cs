@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EverGlow.DataAccess.DbModels
 {
-    [Table("InventoryItem")]
+    [Table("StoreInventory")]
     public class InventoryItem
     {
         public int Id { get;set; }
