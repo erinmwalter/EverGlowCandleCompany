@@ -9,6 +9,8 @@ import {
   NavLink,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import logo from "../../../public/assets/artfulFlame_logo.png";
+import Profile from "./Profile";
 
 const env = process.env.REACT_APP_ENVIRONMENT;
 
