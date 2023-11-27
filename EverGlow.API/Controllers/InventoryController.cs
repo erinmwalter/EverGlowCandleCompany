@@ -30,7 +30,7 @@ namespace EverGlow.API.Controllers
         {
             var result = await _inventoryRepo.GetAll();
             
-            return Ok(result.Where(x => x.Id == id));
+            return Ok(result.Where(x => x.Id == id).FirstOrDefault());
         }
 
         [HttpPost]

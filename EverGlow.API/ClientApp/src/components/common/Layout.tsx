@@ -11,7 +11,7 @@ class Layout extends Component<LayoutProps> {
       <>
         <NavMenu />
         <Container>{this.props.children}</Container>
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }

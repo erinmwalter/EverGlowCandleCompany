@@ -51,8 +51,8 @@ class NavMenu extends Component {
                 alt="ArtfulFlameCandleCo."
                 src={logo}
                 style={{
-                    height: 150,
-                    width: 150
+                    height: 100,
+                    width: 100
                 }}
             />
           </NavbarBrand>
@@ -62,10 +62,15 @@ class NavMenu extends Component {
             isOpen={!this.state.collapsed}
             navbar
           >
-            <ul className="navbar-nav flex-grow">
+            <ul className="navbar-nav align-items-center flex-grow">
               <NavItem>
                 <NavLink tag={Link} className="text-light" to="/">
                   Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} className="text-light" to="/inventory">
+                  Inventory
                 </NavLink>
               </NavItem>
               {

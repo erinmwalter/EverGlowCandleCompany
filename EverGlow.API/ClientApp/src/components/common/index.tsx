@@ -16,7 +16,7 @@ root.render(
   <Auth0Provider
     domain = {domain}
     clientId = {clientId}
-    authorizationParams={{redirect_uri: "http://localhost:6955/employee"}}>
+    authorizationParams={{redirect_uri: "http://localhost:6955/"}}>
   <Router>
     <App />
   </Router>
