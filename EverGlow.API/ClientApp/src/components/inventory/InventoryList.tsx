@@ -90,8 +90,8 @@ const InventoryList = () =>  {
                             <td>{x.itemsPerUnit.toString()}</td>
                             <td>{x.supplierName}</td>
                             <td>{x.supplierId}</td>
-                            <td>{format(new Date(x?.dateLastReordered), "MM-dd-yyyy")}</td>
-                            <td><Button onClick={() => routeChange(x?.id)}>Edit</Button></td>
+                            <td>{format(new Date(x.dateLastReordered), "MM-dd-yyyy")}</td>
+                            <td><Button onClick={() => routeChange(x.id)}>Edit</Button></td>
 
                         </tr>
                     )

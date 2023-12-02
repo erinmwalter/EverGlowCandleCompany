@@ -3,6 +3,7 @@ import React, { Component } from "react";
 
 import { Col, Row } from "reactstrap";
 import InventoryList from "../inventory/InventoryList";
+import OrderStatusList from "../order_status/OrderStatusList";
 
 type AuthProps = {
   auth0: Auth0ContextInterface<User>;
@@ -22,7 +23,12 @@ class Home extends Component<AuthProps> {
   render() {
     return (
       <>
-      <Row>
+      <Row style={{margin:"5px"}}>
+        <Col>
+          <OrderStatusList/>
+        </Col>
+      </Row>
+      <Row style={{margin:"5px"}}>
         <Col>
           <InventoryList/>
         </Col>

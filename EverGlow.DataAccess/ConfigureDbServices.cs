@@ -1,6 +1,7 @@
 ﻿using EverGlow.DataAccess.DbContexts;
 using EverGlow.DataAccess.DbModels;
 using EverGlow.DataAccess.Repos;
+using EverGlow.DataAccess.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +21,14 @@ namespace EverGlow.DataAccess
                     options.UseNpgsql(config.ConnectionString));
 
             services.AddTransient<IRepository<InventoryItem>, Repository<InventoryItem>>();
-
+            services.AddTransient<IRepository<OrderStatus>, Repository<OrderStatus>>();
+            services.AddTransient<IRepository<StorefrontItem>, Repository<StorefrontItem>>();
+            services.AddTransient<IRepository<OrderNote>, Repository<OrderNote>>();
+            services.AddTransient<IRepository<Customer>, Repository<Customer>>();
+            services.AddTransient<IRepository<OrderedItem>, Repository<OrderedItem>>();
+            services.AddTransient<IRepository<StoreInventoryStorefrontItem>, Repository<StoreInventoryStorefrontItem>>();
+            services.AddTransient<IOrderFacade, OrderFacade>();
+            //services.AddTransient<IOrderStatusCache, OrderStatusCache>();
         }
     }
 }

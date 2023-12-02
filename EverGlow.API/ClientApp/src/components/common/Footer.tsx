@@ -14,7 +14,7 @@ export class Footer extends Component {
         <footer className="fixed-bottom" style={{position:"fixed"}}>
             <div style={{alignSelf:"center"}}>
             <img 
-                alt="ArtfulFlameCandleCo."
+                alt="EverGlowCandleCo."
                 src={logo}
                 style={{
                     height: 50,
