@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import logo from "../../../public/assets/artfulFlame_logo.png";
-import Profile from "./Profile";
+import Profile from './Profile'
 
 const env = process.env.REACT_APP_ENVIRONMENT;
 
@@ -48,7 +48,7 @@ class NavMenu extends Component {
         >
           <NavbarBrand tag={Link} to="/">
             <img 
-                alt="ArtfulFlameCandleCo."
+                alt="EverGlowCandleCo."
                 src={logo}
                 style={{
                     height: 100,
@@ -71,6 +71,16 @@ class NavMenu extends Component {
               <NavItem>
                 <NavLink tag={Link} className="text-light" to="/inventory">
                   Inventory
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} className="text-light" to="/orders">
+                  Orders
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} className="text-light" to="/storefront">
+                  Storefront
                 </NavLink>
               </NavItem>
               {
