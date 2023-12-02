@@ -26,6 +26,10 @@ const FeaturedItemsList = () =>  {
       })();
     }, []);
 
+    const routeChange = (id: number) => {
+        navigate(`/storefront/${id}`);
+      };
+
     if(isLoading){
         return(
             <>
@@ -71,7 +75,7 @@ const FeaturedItemsList = () =>  {
                                 Starting at ${x.price}
                                 </Col>
                                 <Col>
-                                    <Button color="primary">Customize</Button>
+                                    <Button onClick={() => routeChange(x.id)} color="primary">Customize</Button>
                                 </Col>
                             </Row>
                         </CardFooter>   

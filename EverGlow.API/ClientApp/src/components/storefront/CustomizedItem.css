@@ -1,0 +1,9 @@
+.shoppingCartCard{
+    background-color:gray;
+    width:30%; 
+    border:black 1px solid;
+    border-radius:5px;
+    color:black;
+    align-items:center !important;
+    align-self: center !important;
+}

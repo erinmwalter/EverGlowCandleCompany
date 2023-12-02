@@ -1,6 +1,6 @@
 import { User, useAuth0 } from "@auth0/auth0-react";
 import React, { useEffect, useState } from "react";
-import { Button, Card, CardBody, CardText, CardTitle, Col, Form, Input, Label, Row, Table } from "reactstrap";
+import { Button, Card, CardBody, CardText, CardTitle, Col, Form, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row, Table } from "reactstrap";
 import { format } from "date-fns";
 import { useNavigate, useParams } from "react-router-dom";
 import StorefrontItem from "../../models/StorefrontItem";
@@ -8,6 +8,7 @@ import OrderedItem, { CandleType, ContainerColor } from "../../models/OrderedIte
 import candlePic from "../../../public/assets/candleimage.png"
 import { GetStorefrontItemByIdAsync } from "../../services/StorefrontService";
 import { JarDecorator, SimpleCandle, SizeDecorator, WickDecorator } from "./ItemPriceBuilder";
+import "./CustomizedItem.css";
 
 const CuztomizeItem:React.FC = () =>  {
     let { id } = useParams();
@@ -16,6 +17,9 @@ const CuztomizeItem:React.FC = () =>  {
     const [accessToken, setAccessToken] = useState("");
     const [baseItem, setCurrentItem] = useState<StorefrontItem>();
     const [cartItems, setCartItems] = useState<OrderedItem[]>([]);
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
+
 
     const [ editableParamProps, setEditableParamProps] = useState<OrderedItem>({
         id: 0,
@@ -71,6 +75,9 @@ const CuztomizeItem:React.FC = () =>  {
         
         console.log(candle.description());
         console.log(`Total Price: $${item.itemPrice}`);
+
+        setCartItems(cartItems => [...cartItems, item]);
+        toggle();
 
     }
 
@@ -205,9 +212,39 @@ const CuztomizeItem:React.FC = () =>  {
         </Col>
     </Row>
     </Form>
-    
     </Card>
     </Col>
+    <Modal
+        isOpen={modal}
+        toggle={toggle}
+        className="text-center"
+        style={{height:"35%", width:"35%"}}
+      >
+        <ModalHeader toggle={toggle}>Cart</ModalHeader>
+        <ModalBody style={{display:"flex", alignItems:"center", justifyContent:"space-evenly"}}>
+        {
+        cartItems.map((x,i) => {
+            return(
+                <div className="shoppingCartCard">
+                    <div><img 
+                                width="100%"
+                                alt={x.storefrontItem?.name}
+                                src={candlePic}
+                            /></div>
+                    <div>{x.storefrontItem?.name}</div>
+                    <div>${x.itemPrice}</div>
+                    
+                </div>
+            )
+        })
+        }
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={toggle}>
+            Continue Shopping
+          </Button>{' '}
+        </ModalFooter>
+      </Modal>
     </>
     )
 };
