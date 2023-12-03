@@ -16,7 +16,16 @@
 3. Run npm install command to install all relevant packages, may take a few minutes.
 4. Once installed, you can run npm start. Your project should build, start, and show up on localhost:6955 in your browser window.
 5. If it does not prompt you, you may need to click the "LogIn" button in the upper right hand corner to go to auth0 to login. It will prompt you to enter a username and password or sign in with Google/gmail (please use this Google option for now as there is no database connected to store any login information currently). You may have to click "yes" to authorize the application, and then it should refresh you back to the home page.
-6. From here, you can click on the different sections in the navbar. 
+6. From here, you can click on the different sections in the navbar.
+
+### Connection to a local instance of the AWS Database
+1. All database tables and data are stored in a PostgreSQL AWS database, however if you would like to connect locally to see the data or add other data you can follow these steps to open it up locally.
+2. Download whatever type of PostgreSQL GUI you wish, I use PGAdmin4, however there are many out there.
+3. Use the HOST from the connection string as the host.
+4. User "User ID" from the connection string as the Username/UserID, which should be postgres.
+5. Use "Password" from the connection string as the password
+6. Use "Port" as the port number, which should be 5432.
+7. Use "Database" for the database name, which should be everglowdb566.
 
 ### Troubleshooting issues:
 1. Database connection string errors (500 errors from swagger) - Make sure that you have correctly entered in the connection string.
